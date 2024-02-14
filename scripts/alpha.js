@@ -1,18 +1,23 @@
 function play() {
   // hide the home page
-  const homeScreen = document.getElementById("home-page");
-  homeScreen.classList.add("hidden");
+  hideElementById("home-page");
+  hideElementById("finalScoreCard");
 
   // go to playground
-
-  const playground = document.getElementById("playground");
-  playground.classList.remove("hidden");
+  showElementById("playground");
 
   // display random number
   continuePlay();
-
-  // key highlight
 }
+function playAgain() {
+  const lifeElement = document.getElementById("life");
+  lifeElement.innerText = 10;
+  const scoreElement = document.getElementById("score");
+  scoreElement.innerText = 0;
+
+  play();
+}
+
 document.addEventListener("keyup", keyboardKeyPress);
 function keyboardKeyPress(event) {
   //   user pressed alphabet
@@ -25,8 +30,28 @@ function keyboardKeyPress(event) {
   if (userPressed === displayAlphabet) {
     removeBackgroundColorById(displayAlphabet);
     continuePlay();
+
+    // get the score text
+    const scoreElement = document.getElementById("score");
+    const score = parseInt(scoreElement.innerText);
+    const newScore = score + 1;
+    // set the new score
+    scoreElement.innerText = newScore;
   } else {
-    console.log("ohh noo");
+    // get the life text
+    const lifeElement = document.getElementById("life");
+    const life = parseInt(lifeElement.innerText);
+    const newLife = life - 1;
+    // set the new life count
+    lifeElement.innerText = newLife;
+
+    if (newLife === 0) {
+      hideElementById("playground");
+      showElementById("finalScoreCard");
+      const finalScore = document.getElementById("finalScore");
+      const score = document.getElementById("score").innerText;
+      finalScore.innerText = score;
+    }
   }
 }
 
@@ -48,6 +73,17 @@ function generateRandomAlphabet() {
 
   const randomAlphabet = alpha[randomNumber];
   return randomAlphabet;
+}
+
+function hideElementById(elementId) {
+  const element = document.getElementById(elementId);
+
+  element.classList.add("hidden");
+}
+function showElementById(elementId) {
+  const element = document.getElementById(elementId);
+
+  element.classList.remove("hidden");
 }
 
 function setBackgroundColorById(elementId) {
