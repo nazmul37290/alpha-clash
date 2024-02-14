@@ -22,7 +22,9 @@ document.addEventListener("keyup", keyboardKeyPress);
 function keyboardKeyPress(event) {
   //   user pressed alphabet
   const userPressed = event.key;
-
+  if (userPressed === "Escape") {
+    gameOver();
+  }
   // display alphabet access
   const displayAlphabet = document.getElementById("display").innerText;
 
@@ -46,11 +48,7 @@ function keyboardKeyPress(event) {
     lifeElement.innerText = newLife;
 
     if (newLife === 0) {
-      hideElementById("playground");
-      showElementById("finalScoreCard");
-      const finalScore = document.getElementById("finalScore");
-      const score = document.getElementById("score").innerText;
-      finalScore.innerText = score;
+      gameOver();
     }
   }
 }
@@ -93,4 +91,14 @@ function setBackgroundColorById(elementId) {
 function removeBackgroundColorById(elementId) {
   const element = document.getElementById(elementId);
   element.classList.remove("bg-green-800", "text-white");
+}
+
+function gameOver() {
+  hideElementById("playground");
+  showElementById("finalScoreCard");
+  const finalScore = document.getElementById("finalScore");
+  const score = document.getElementById("score").innerText;
+  finalScore.innerText = score;
+  const lastAlphabet = document.getElementById("display").innerText;
+  removeBackgroundColorById(lastAlphabet);
 }
