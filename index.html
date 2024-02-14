@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alphabet Clash</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <main>
+        <div class="bg-gradient-to-b from-green-300 to-green-800 min-h-screen">
+<!-- _____________________home page section_________________ -->
+            <section id="home-page" class="flex flex-col justify-center items-center  min-h-screen gap-5">
+                <h1 class="text-8xl text-white font-bold">Alpha Clash</h1>
+                <p class="text-white font-medium text-2xl">Lets play with letters</p>
+                <button onclick="play()" class="btn bg-white text-green-400 font-bold">
+                    Play Now
+                </button>
+
+            </section>
+<!-- ___________________playground page section_____________ -->
+
+<section id="playground" class="space-y-5 hidden" >
+   <div class="flex justify-center pt-5">
+    <div class="artboard artboard-horizontal phone-6 rounded-md bg-[#ffffffb3] border-[20px] border-green-950">
+        <p class="text-white bg-green-900 mx-auto text-center w-fit p-2 rounded-b-xl">Don't look at your keyboard while playing...</p>
+        <p id="display" class="font-extrabold text-8xl text-center pt-10">Y</p>
+    </div>
+    
+   </div>
+   <div class="text-green-800">
+        <div class="flex justify-center gap-1 my-1 w-full">
+            <kbd id="q" class="kbd">q</kbd>
+            <kbd id="w" class="kbd">w</kbd>
+            <kbd id="e" class="kbd">e</kbd>
+            <kbd id="r" class="kbd">r</kbd>
+            <kbd id="t" class="kbd">t</kbd>
+            <kbd id="y" class="kbd">y</kbd>
+            <kbd id="u" class="kbd">u</kbd>
+            <kbd id="i" class="kbd">i</kbd>
+            <kbd id="o" class="kbd">o</kbd>
+            <kbd id="p" class="kbd">p</kbd>
+          </div> 
+          <div class="flex justify-center gap-1 my-1 w-full">
+            <kbd id="a" class="kbd">a</kbd>
+            <kbd id="s" class="kbd">s</kbd>
+            <kbd id="d" class="kbd">d</kbd>
+            <kbd id="f" class="kbd">f</kbd>
+            <kbd id="g" class="kbd">g</kbd>
+            <kbd id="h" class="kbd">h</kbd>
+            <kbd id="j" class="kbd">j</kbd>
+            <kbd id="k" class="kbd">k</kbd>
+            <kbd id="l" class="kbd">l</kbd>
+          </div> 
+          <div class="flex justify-center gap-1 my-1 w-full">
+            <kbd id="z" class="kbd">z</kbd>
+            <kbd id="x" class="kbd">x</kbd>
+            <kbd id="c" class="kbd">c</kbd>
+            <kbd id="v" class="kbd">v</kbd>
+            <kbd id="b" class="kbd">b</kbd>
+            <kbd id="n" class="kbd">n</kbd>
+            <kbd id="m" class="kbd">m</kbd>
+            <kbd id="/" class="kbd">/</kbd>
+          </div>
+    </div>
+    <div class="flex justify-around">
+        <button class="btn text-green-800 font-bold">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="green" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
+            Life
+          </button>
+        <button class="btn text-green-800 font-bold">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="green" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
+            Score
+          </button>
+    </div>
+</section>
+
+        </div>
+    </main>
+    <script src="scripts/alpha.js"></script>
+</body>
+</html>
