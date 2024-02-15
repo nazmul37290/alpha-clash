@@ -14,10 +14,15 @@ function playAgain() {
   lifeElement.innerText = 10;
   const scoreElement = document.getElementById("score");
   scoreElement.innerText = 0;
+  audio.setAttribute("src", "wrong.mp3");
 
   play();
 }
+// calling audio tag in a variable
 
+var audio = document.getElementById("audio");
+
+// event listener
 document.addEventListener("keyup", keyboardKeyPress);
 function keyboardKeyPress(event) {
   //   user pressed alphabet
@@ -40,7 +45,11 @@ function keyboardKeyPress(event) {
     // set the new score
     scoreElement.innerText = newScore;
   } else {
+    audio.play();
+    audio.playbackRate = 2;
+
     // get the life text
+
     const lifeElement = document.getElementById("life");
     const life = parseInt(lifeElement.innerText);
     const newLife = life - 1;
@@ -48,6 +57,7 @@ function keyboardKeyPress(event) {
     lifeElement.innerText = newLife;
 
     if (newLife === 0) {
+      audio.setAttribute("src", "");
       gameOver();
     }
   }
